@@ -18,7 +18,7 @@ export default async function Album({ cardsInfo }: AlbumProps) {
     <Carousel
       orientation="horizontal"
       className="flex flex-col bg-black/50 w-fit h-[90vh]"
-      opts={{ align: "start" }}
+      opts={{ align: "start", slidesToScroll: 2 }}
     >
       <CarouselContent>
         {Array.from({ length: totalOfPages }).map((_, index) => (
