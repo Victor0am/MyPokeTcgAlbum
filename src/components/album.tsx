@@ -28,7 +28,7 @@ export default async function Album({ cardsInfo }: AlbumProps) {
                 return (
                   <Image
                     key={card.id}
-                    src={`${card.images.large}`}
+                    src={`${card.images.small}`}
                     width={190}
                     height={250}
                     alt={`${card.name} ${card.id}`}
