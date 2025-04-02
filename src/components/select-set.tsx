@@ -18,67 +18,10 @@ import {
 } from "./ui/select";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
-
-const SELECT_SET_OPTIONS = [
-  {
-    name: "Journey Together",
-    ptcgoCode: "JTG",
-  },
-  {
-    name: "Prismatic Evolutions",
-    ptcgoCode: "PRE",
-  },
-  {
-    name: "Surging Sparks",
-    ptcgoCode: "SSP",
-  },
-  {
-    name: "Stellar Crown",
-    ptcgoCode: "SCR",
-  },
-  {
-    name: "Shrouded Fable",
-    ptcgoCode: "SFA",
-  },
-  {
-    name: "Temporal Forces",
-    ptcgoCode: "TEF",
-  },
-  {
-    name: "Paldean Fates ",
-    ptcgoCode: "PAF",
-  },
-  {
-    name: "Paradox Rift",
-    ptcgoCode: "PAR",
-  },
-  {
-    name: "151",
-    ptcgoCode: "MEW",
-  },
-  {
-    name: "Obsidian Flames",
-    ptcgoCode: "OBF",
-  },
-  {
-    name: "Paldea Evolved",
-    ptcgoCode: "PAL",
-  },
-  {
-    name: "Scarlet & Violet",
-    ptcgoCode: "SVI",
-  },
-  {
-    name: "Scarlet & Violet Energies",
-    ptcgoCode: "SVE",
-  },
-  {
-    name: "Scarlet & Violet Black Star Promos",
-    ptcgoCode: "PR-SV",
-  },
-];
+import { SET_OPTIONS } from "@/lib/constants";
 
 export default function SelectSetPage() {
+  const selectOptions = SET_OPTIONS;
   const router = useRouter();
   const [selectOption, setSelectOption] = useState("");
   return (
@@ -100,9 +43,9 @@ export default function SelectSetPage() {
                   <SelectValue placeholder="Select a set" />
                 </SelectTrigger>
                 <SelectContent position="item-aligned">
-                  {SELECT_SET_OPTIONS.map((item) => {
+                  {selectOptions.map((item) => {
                     return (
-                      <SelectItem key={item.ptcgoCode} value={item.ptcgoCode}>
+                      <SelectItem key={item.ptcgoCode} value={item.albumUrl}>
                         {item.name}
                       </SelectItem>
                     );
@@ -112,10 +55,8 @@ export default function SelectSetPage() {
             </div>
           </div>
         </CardContent>
-        <CardFooter>
-          <Button onClick={() => router.push(`/set/${selectOption}`)}>
-            Go To Album
-          </Button>
+        <CardFooter className="flex justify-center">
+          <Button onClick={() => router.push(selectOption)}>Go To Album</Button>
         </CardFooter>
       </Card>
     </div>

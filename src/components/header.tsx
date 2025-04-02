@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { CircleUserRound } from "lucide-react";
+import Breadcrumbs from "./breadcrumbs";
 import OpenMenuButton from "./open-menu-button";
 
 type HeaderProps = {
@@ -16,6 +17,7 @@ export default function Header({ className }: HeaderProps) {
       )}
     >
       <OpenMenuButton />
+      <Breadcrumbs className="self-center place-self-start basis-11/12 mx-2" />
       <Button className="bg-black/50 size-auto w-1/20 border-black/50 border hover:bg-black/75">
         <CircleUserRound className="size-auto" />
       </Button>
